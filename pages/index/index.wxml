@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<!--
+    小程序启动页
+    auther:陈合龙
+    date:20180402
+-->
+<view class="body">
+    <view class='header'>
+        <view class="headerItem">油耗记录器</view>
+    </view>
+
+    <view>
+      <label>总里程数：<input type="text" placeholder="请输入总里程数："/></label>
+    </view>
+
+    <view>
+      <label>当前里程数：<input type="text" placeholder="请输入当前里程数："/></label>
+    </view>
+
+    <view>
+      <label>加油量：<input type="text" placeholder="请输入加油量："/></label>
+    </view>
+
+    <view>
+      <label>价格：<input type="text" placeholder="请输入加价格："/></label>
+    </view>
+
+
+</view>

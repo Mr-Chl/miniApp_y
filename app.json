@@ -1,0 +1,59 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/manage/manage",
+    "pages/home/home",
+    "pages/detaile/detaile"
+  ],
+  "window":{
+    "backgroundTextStyle": "light", 
+
+    "navigationBarBackgroundColor": "#ffffff", 
+
+    "navigationBarTitleText": "机动车油耗记录",
+
+    "navigationBarTextStyle": "black",
+
+    "navigationStyle": "custom",
+    
+    "backgroundColor": "#f2f2f2",
+
+    "enablePullDownRefresh": false,
+    
+    "onReachBottomDistance": 100,
+    
+    "backgroundColorTop": "#f2f2f2",
+   
+    "backgroundColorBottom": "#f2f2f2"
+  },
+  "tabBar": {
+    "list": [
+    {
+      "pagePath": "pages/manage/manage",
+      "text": "管理",
+      "iconPath": "./static/logo_head.png",
+      "selectedIconPath": "./static/logo_head.png"
+    },{
+      "pagePath": "pages/index/index",
+      "text": "记录",
+      "iconPath": "./static/logo_head.png",
+      "selectedIconPath": "./static/logo_head.png"
+    },{
+      "pagePath": "pages/detaile/detaile",
+      "text": "详情",
+      "iconPath": "./static/logo_head.png",
+      "selectedIconPath": "./static/logo_head.png"
+    },{
+      "pagePath": "pages/home/home",
+      "text": "我的",
+      "iconPath": "./static/logo_head.png",
+      "selectedIconPath": "./static/logo_head.png"
+    }]
+  },
+  "networkTimeout":{
+    "request": 60000, 
+    "uploadFile": 60000,
+    "downloadFile": 60000,
+    "connectSocket": 60000
+  }
+}
