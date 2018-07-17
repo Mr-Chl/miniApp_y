@@ -1,14 +1,14 @@
 <template name="header">
-    <view class='_w100 _h170 _display_flex' style="line-height:170rpx">
-        <view class="_w100  _flex1" >
+    <view class='_wFull _h170 _bg_blue sticky _display_flex' style="line-height:170rpx;">
+        <view class="_wFull  _flex1" >
             <navigator 
                 wx:if="{{showBackBtn}}"
-                class="iconfont icon-fanhui _inline_block _pl20 _pr20 _ml50" 
+                class="iconfont icon-arrow-right _inline_block _pl20 _pr20 _ml50" 
                 style="{{iconStyle ? iconStyle : 'font-size:40rpx;opacity:0.8;'}}" 
                 open-type="navigateBack" 
                 delta="1" hover-class="none"></navigator>
         </view>
-        <view class="_w100  _flex1 _center" style="{{textStyle ? textStyle : 'font-size:30rpx;'}}">{{text}}</view>
-        <view class="_w100  _flex1"></view>
+        <view class="_wFull _flex1 _center" style="{{textStyle ? textStyle : 'font-size:30rpx;'}}">{{text}}</view>
+        <view class="_wFull  _flex1"></view>
     </view>
 </template>

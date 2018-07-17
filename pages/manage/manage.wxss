@@ -3,21 +3,30 @@
 page{
     width:100%;
     height:100%;
+    background:linear-gradient(45deg, #1296db, #1296db);
 }
-.body{
-    width:100%;
-    height:100%;
-    background:rgba(255,200,100,0.2);
+
+.infoBox{
+  width: 650rpx;
+  height: 200rpx;
+  background:rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 26rpx;
+  padding:0 20rpx 0 20rpx;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border-radius: 10rpx;
 }
-.header{
+.infoBox .title{
   width: 100%;
-  height: 150rpx;
-  display: flex;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 36rpx;
 }
-.headerItem{
-  width: 100%;
-  height: 150rpx;
-  flex:1;
-  line-height: 150rpx;
-  text-align: center;
+
+.infoBox .items{
+  flex-direction: column;
+  align-items: center;
+  width:33.33333%;
+  overflow: hidden
 }

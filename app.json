@@ -1,9 +1,10 @@
 {
   "pages":[
-    "pages/getAuthor/getAuthor",
+    "pages/addmark/addmark",
     "pages/manage/manage",
+    "pages/getAuthor/getAuthor",
     "pages/home/home",
-    "pages/index/index",
+    "pages/addbranch/addbranch",
     "pages/detaile/detaile"
   ],
   "window":{
@@ -15,8 +16,8 @@
     "backgroundColor": "#fffff",
     "enablePullDownRefresh": false,
     "onReachBottomDistance": 100,
-    "backgroundColorTop": "#f2f2f2",
-    "backgroundColorBottom": "#f2f2f2"
+    "backgroundColorTop": "#1296db",
+    "backgroundColorBottom": "#1296db"
   },
   "networkTimeout":{
     "request": 60000, 

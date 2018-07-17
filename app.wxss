@@ -2,26 +2,28 @@
 
 @import './utils/iconfonts.wxss';
 /* margin  */
-
+._mt10 { margin-top: 10rpx !important; }
 ._mt20 { margin-top: 20rpx !important; }
 ._mt30 { margin-top: 30rpx !important; }
 ._mt40 { margin-top: 40rpx !important; }
 ._mt50 { margin-top: 50rpx !important; }
 ._mt100 { margin-top: 100rpx !important; }
 
-
+._ml10 { margin-left: 10rpx !important; }
 ._ml20 { margin-left: 20rpx !important; }
 ._ml30 { margin-left: 30rpx !important; }
 ._ml40 { margin-left: 40rpx !important; }
 ._ml50 { margin-left: 50rpx !important; }
 ._ml60 { margin-left: 60rpx !important; }
 
+._mb10 { margin-bottom: 10rpx !important; }
 ._mb20 { margin-bottom: 20rpx !important; }
 ._mb30 { margin-bottom: 30rpx !important; }
 ._mb40 { margin-bottom: 40rpx !important; }
 ._mb50 { margin-bottom: 50rpx !important; }
 ._mb60 { margin-bottom: 60rpx !important; }
 
+._mr10 { margin-right: 10rpx !important; }
 ._mr20 { margin-right: 20rpx !important; }
 ._mr30 { margin-right: 30rpx !important; }
 ._mr40 { margin-right: 40rpx !important; }
@@ -88,6 +90,7 @@
 ._shadow{box-shadow:0px 0px 10px #e3e3e3;}
 /* 边框  */
 ._border_gray{border:2rpx solid #cccccc;}
+._border_b{border-bottom:2rpx solid #cccccc;}
 
 /* 加号icon  */
 
@@ -197,17 +200,22 @@
 ._bg_row{ background: #dcdcdc !important;}
 ._bg_grayf6{ background: #f6f6f6 !important;}
 ._bg_gray33{ background: #333333 !important;}
+._bg_blue{ background: #1296db !important;}
 
-
+.sticky {  
+    position: -webkit-sticky;  
+    position: -moz-sticky;  
+    position: -ms-sticky;  
+    position: sticky;  
+    top: 0px;
+}  
 
 /* 宽高 100%  */
-._w100{ width: 100% }
 ._w50{ width: 50rpx }
 ._w100{ width: 100rpx }
 ._w200{ width: 200rpx }
 ._w300{ width: 300rpx }
-._w100{ width: 100% }
-._h100{ height: 100% }
+._wFull{ width: 100% }
 ._whFull{ width: 100%; height: 100%;}
 
 /* 高度 100%  */

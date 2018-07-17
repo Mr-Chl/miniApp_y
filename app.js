@@ -16,7 +16,7 @@ App({
             })
         } else {
             wx.redirectTo({
-                url: '/pages/manage/manage',
+                url: 'pages/manage/manage',
             })
         }
     },

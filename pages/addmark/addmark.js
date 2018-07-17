@@ -1,4 +1,4 @@
-// pages/detaile/detaile.js
+// pages/addmark/addmark.js
 Page({
 
   /**
@@ -7,9 +7,9 @@ Page({
   data: {
     header_config: {  // 头部配置
       iconStyle: '',
-      text: '油耗详情',
+      text: '管理',
       textStyle: 'color:#fff;font-size:40rpx',
-      showBackBtn: true,
+      showBackBtn: false,
     },
   },
 
@@ -17,9 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      "header_config.text":options.id,
-    })
+  
   },
 
   /**

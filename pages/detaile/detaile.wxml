@@ -1,2 +1,4 @@
 <!--pages/detaile/detaile.wxml-->
-<text>pages/detaile/detaile.wxml</text>
+<import src="../../template/header/header.wxml"/>
+
+ <template is="header" data="{{...header_config}}"></template>

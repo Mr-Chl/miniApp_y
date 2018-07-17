@@ -1,0 +1,25 @@
+<import src="../../template/header/header.wxml"/>
+    <template is="header" data="{{...header_config}}"></template>
+<view >
+    <view class="items">
+      <view>总里程数（km/l）：<input type="text" placeholder="请输入总里程数："/></view>
+    </view>
+
+    <view class="items">
+      <view>当前里程数（km/l）：<input type="text" placeholder="请输入当前里程数："/></view>
+    </view>
+
+    <view class="items">
+      <view>加油量（l）：<input type="text" placeholder="请输入加油量："/></view>
+    </view>
+
+    <view class="items">
+      <view>油品（类型）：<input type="text" placeholder="请输入加油类型："/></view>
+    </view>
+
+    <view class="items">
+      <view>价格：<input type="text" placeholder="请输入加价格："/></view>
+    </view>
+
+    <button type='mini'>保存</button>
+</view>
