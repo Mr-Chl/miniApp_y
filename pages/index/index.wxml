@@ -10,15 +10,19 @@
     </view>
 
     <view>
-      <label>总里程数：<input type="text" placeholder="请输入总里程数："/></label>
+      <label>总里程数（km/公里）：16000</label>
     </view>
 
     <view>
-      <label>当前里程数：<input type="text" placeholder="请输入当前里程数："/></label>
+      <label>当前里程数（km/公里）：<input type="text" placeholder="请输入当前里程数："/></label>
     </view>
 
     <view>
-      <label>加油量：<input type="text" placeholder="请输入加油量："/></label>
+      <label>加油量（升）：<input type="text" placeholder="请输入加油量："/></label>
+    </view>
+
+    <view>
+      <label>油品（类型）：<input type="text" placeholder="请输入加油类型："/></label>
     </view>
 
     <view>

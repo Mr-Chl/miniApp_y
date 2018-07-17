@@ -1,12 +1,11 @@
 <!--pages/manage/manage.wxml-->
 <view class="body">
     <view class='header'>
-        <view class="headerItem">添加车辆</view>
+        <view class="headerItem"></view>
         <view class="headerItem">油耗记录器</view>
         <view class="headerItem"></view>
     </view>
 
-    <view class="_center">
-      暂无车辆信息
-    </view>
+    <view class="_center">点击添加</view>
+    <view class="_center _pt30">暂无车辆信息</view>
 </view>

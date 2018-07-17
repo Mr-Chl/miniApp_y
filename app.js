@@ -9,6 +9,16 @@ import {
 App({
     onLaunch() { // 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
         this.getPhoneInfo(); //获取系统信息
+        let author = wx.getStorageSync('token');
+        if (!author) {
+            wx.redirectTo({
+                url: '/pages/getAuthor/getAuthor',
+            })
+        } else {
+            wx.redirectTo({
+                url: '/pages/manage/manage',
+            })
+        }
     },
     //获取系统信息 存到本地
     getPhoneInfo() {
@@ -34,6 +44,53 @@ App({
                     }
                 })
             }
+        })
+    },
+
+    onGotUserInfo: function (e) {
+        let { encryptedData, iv, rawData, signature } = e.detail;
+        if (iv) {
+            if (true) { // 是否登陆过
+                this.loginHandle({
+                    encryptedData: encryptedData,
+                    iv: iv,
+                    rawData: rawData,
+                    signature: signature,
+                });
+            }
+        } else {
+            wx.showToast({
+                icon: 'none',
+                title: '您拒绝了授权！',
+            })
+        }
+    },
+    loginHandle(detail) {
+        wx.login({
+            success: (res) => {
+                if (res.code) {
+                    wx.request({//发起网络请求
+                        url: BASE_URL + '/mini_post_login',
+                        method: 'post',
+                        data: {
+                            code: res.code,
+                            ...detail,
+                        },
+                        success(res) {
+                            if (res.data.code == 200) {
+                                wx.setStorageSync('token', res.data.data.data);
+                            } else {
+                                wx.showToast({
+                                    icon: 'none',
+                                    title: '登陆失败',
+                                })
+                            }
+                        },
+                    })
+                } else {
+                    console.log('登录失败！' + res.errMsg)
+                }
+            },
         })
     },
 })

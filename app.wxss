@@ -1,31 +1,65 @@
 /**app.wxss**/
+
+@import './utils/iconfonts.wxss';
 /* margin  */
 
 ._mt20 { margin-top: 20rpx !important; }
-._mb20 { margin-bottom: 20rpx !important; }
-._ml20 { margin-left: 20rpx !important; }
-._mr20 { margin-right: 20rpx !important; }
-
 ._mt30 { margin-top: 30rpx !important; }
-._mb30 { margin-bottom: 30rpx !important; }
+._mt40 { margin-top: 40rpx !important; }
+._mt50 { margin-top: 50rpx !important; }
+._mt100 { margin-top: 100rpx !important; }
+
+
+._ml20 { margin-left: 20rpx !important; }
 ._ml30 { margin-left: 30rpx !important; }
+._ml40 { margin-left: 40rpx !important; }
+._ml50 { margin-left: 50rpx !important; }
+._ml60 { margin-left: 60rpx !important; }
+
+._mb20 { margin-bottom: 20rpx !important; }
+._mb30 { margin-bottom: 30rpx !important; }
+._mb40 { margin-bottom: 40rpx !important; }
+._mb50 { margin-bottom: 50rpx !important; }
+._mb60 { margin-bottom: 60rpx !important; }
+
+._mr20 { margin-right: 20rpx !important; }
 ._mr30 { margin-right: 30rpx !important; }
+._mr40 { margin-right: 40rpx !important; }
+._mr50 { margin-right: 50rpx !important; }
+._mr60 { margin-right: 60rpx !important; }
+
+._ml40 { margin-left: 40rpx !important; }
+._ml50 { margin-left: 50rpx !important; }
 
 ._mg10 { margin: 10rpx !important; }
 ._mg20 { margin: 20rpx !important; }
 
 /* padding  */
-/*20  */
-._pt20 { padding-top: 20rpx !important; }
-._pb20 { padding-bottom: 20rpx !important; }
-._pl20 { padding-left: 20rpx !important; }
-._pr20 { padding-right: 20rpx !important; }
 
-/*30  */
-._pt30 { padding-top: 30rpx !important; }
+._pb10 { padding-bottom: 10rpx !important; }
+._pb20 { padding-bottom: 20rpx !important; }
 ._pb30 { padding-bottom: 30rpx !important; }
+._pb40 { padding-bottom: 40rpx !important; }
+._pb50 { padding-bottom: 50rpx !important; }
+
+._pt10 { padding-top: 10rpx !important; }
+._pt20 { padding-top: 20rpx !important; }
+._pt30 { padding-top: 30rpx !important; }
+._pt40 { padding-top: 40rpx !important; }
+._pt50 { padding-top: 50rpx !important; }
+._pt60 { padding-top: 60rpx !important; }
+
+._pl10 { padding-left: 10rpx !important; }
+._pl20 { padding-left: 20rpx !important; }
 ._pl30 { padding-left: 30rpx !important; }
+._pl40 { padding-left: 40rpx !important; }
+._pl50 { padding-left: 50rpx !important; }
+
+._pr10 { padding-right: 10rpx !important; }
+._pr20 { padding-right: 20rpx !important; }
 ._pr30 { padding-right: 30rpx !important; }
+._pr40 { padding-right: 40rpx !important; }
+._pr50 { padding-right: 50rpx !important; }
 
 /* 四周  */
 ._pd10 { padding: 10rpx !important; }
@@ -38,12 +72,16 @@
 ._txt_lightblack { color: #333333 !important; }/*正常字体颜色 浅黑色*/
 ._txt_black { color: #000000 !important; } 
 ._txt_gray { color: #999999 !important; } /* 淡灰色*/
-._txt_yellow { color: #ffa64c !important; } /* 橘黄色*/
+._txt_blue { color: #1296db !important; } /* 蓝色*/
 ._txt_gray6 { color: #666666 !important; } 
-._txt_gray_c { color: #cccccc !important; } 
+._txt_gray_c { color: #969595 !important; } 
 
 
-
+._font_size24{ font-size: 24rpx }
+._font_size30{ font-size: 30rpx }
+._font_size36{ font-size: 36rpx }
+._font_size42{ font-size: 42rpx }
+._font_size50{ font-size: 24rpx }
 
 /* 阴影  */
 
@@ -164,8 +202,22 @@
 
 /* 宽高 100%  */
 ._w100{ width: 100% }
+._w50{ width: 50rpx }
+._w100{ width: 100rpx }
+._w200{ width: 200rpx }
+._w300{ width: 300rpx }
+._w100{ width: 100% }
 ._h100{ height: 100% }
 ._whFull{ width: 100%; height: 100%;}
+
+/* 高度 100%  */
+._h50{ width: 50rpx }
+._h100{ height: 100rpx }
+._h80{ height: 80rpx }
+._h150{ height: 150rpx }
+._h170{ height: 170rpx }
+._h200{ height: 200rpx }
+._hFull{ height: 100%;}
  /* 浮动 */
 ._f_left { float: left; }
 ._f_right { float: right; }
@@ -190,10 +242,12 @@
 
 
 /* 弹性盒  */
-._flex { display: flex; }
+._display_flex { display: flex; }
 ._flex_item_center { align-items: center; }
 ._flex_justify_center { justify-content: center; }
 ._flex_space_between { justify-content: space-between; }
+
+._flex1 { flex: 1; }
 
 /* 去除边框  */
 button::after { border:none; }
@@ -204,7 +258,32 @@ button::after { border:none; }
 /* 超出一省略 */
 ._ellipsis {overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
 
+._bth_m{
+    width:200rpx;
+    height: 70rpx;
+    font-size: 30rpx;
+    line-height: 70rpx;
+    background:#1296db;
+    color:#fff;
+}
 
+._bth_s{
+    width:100rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 30rpx;
+    background:#1296db;
+    color:#fff;
+}
+
+._bth_l{
+    width:300rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+    background:#1296db;
+    color:#fff;
+}
 
 /* 标签默认样式  */
 input:-webkit-input-placeholder {

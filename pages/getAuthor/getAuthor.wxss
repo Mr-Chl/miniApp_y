@@ -1,0 +1,4 @@
+/* pages/getAuthor/getAuthor.wxss */
+page{
+    /* background: linear-gradient(135deg,#1897f9, #0580b9); */
+}

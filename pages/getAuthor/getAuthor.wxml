@@ -1,0 +1,18 @@
+<!--pages/getAuthor/getAuthor.wxml-->
+<import src="../../template/header/header.wxml"/>
+<view >
+    <template is="header" data="{{...header_config}}"></template>
+    <view class="iconfont icon-zu-copy _txt_blue _center _mt30 _mb40" style="font-size:200rpx;color:#ccc"></view>
+
+    <view class="_txt_gray_c _center _font_size30 _pt10 _pb10">oh ~shit 您还没有授权？</view>
+    <view class="_txt_gray_c _center _font_size24 _pt10 _pb10">请允许我获取您的基本信息用于识别不同用户</view>
+    <view class="_txt_gray_c _center _font_size24 _pt10 _pb10">授权后才可以正常使用哦~</view>
+    <view class="_txt_gray_c _center _font_size24 _pt10 _pb10">授权不会涉及到您的个人隐私</view>
+    <view class="_center _mt30">
+        <button 
+        open-type="getUserInfo" 
+        bindgetuserinfo="onGotUserInfo" 
+        class="_bth_l">请授权~</button>
+    </view>
+    <view class="_txt_gray_c _center _font_size24 _pt10 _pb10 _mt100">点击授权 并且点击允许就可以啦~</view>
+</view>
