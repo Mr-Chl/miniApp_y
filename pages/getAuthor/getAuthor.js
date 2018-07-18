@@ -43,7 +43,7 @@ Page({
                       },
                       success(res) {
                           if (res.data.code == 200) {
-                              wx.setStorageSync('token', res.data.data.data);
+                              wx.setStorageSync('token', res.data.data);
                               wx.showToast({
                                   image: '../../static/success2.png',
                                   title: '授权成功',

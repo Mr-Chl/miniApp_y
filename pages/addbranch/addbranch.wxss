@@ -1,1 +1,20 @@
 /* pages/addbranch/addbranch.wxss */
+page{
+     background:linear-gradient(45deg, #1296db, #1296db); 
+}
+.addbranch{
+  width:80%;
+  height: 250rpx;
+  background: rgba(0,0,0,0.2);
+  margin:0 auto;
+  border-radius: 10rpx;
+  margin-top:50rpx;
+}
+
+.addbranch text{
+  height: 60rpx;
+  width: 100%;
+}
+.addbranch input{
+  height: 70rpx;
+}

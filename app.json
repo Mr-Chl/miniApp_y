@@ -1,10 +1,10 @@
 {
   "pages":[
-    "pages/addmark/addmark",
     "pages/manage/manage",
-    "pages/getAuthor/getAuthor",
-    "pages/home/home",
     "pages/addbranch/addbranch",
+    "pages/getAuthor/getAuthor",
+    "pages/addmark/addmark",
+    "pages/home/home",
     "pages/detaile/detaile"
   ],
   "window":{

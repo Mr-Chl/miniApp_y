@@ -1,4 +1,5 @@
 // pages/manage/manage.js
+import { wxTools } from '../../utils/util.js';
 Page({
 
   /**
@@ -11,26 +12,11 @@ Page({
       textStyle: 'color:#fff;font-size:40rpx',
       showBackBtn: false,
     },
-    carInfo:{
-      carName:'cx-5',
-      carList:[{
-        totleM: 2000,
-        currentM:500,
-        consumption: 4.2,
-        id: 1001,
-        },
-        {
-          totleM: 2000,
-          currentM: 500,
-          id: 1002,
-          consumption: 4.2,
-        }
-      ]
-    }
+    carInfo:[],
   },
 
   onLoad: function (options) {
-  
+    this.getCarList();
   },
 
   showDetaile: function (e) {
@@ -44,7 +30,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   addBranch: function () {
-    if (this.data.carInfo.carList.length >= 3) {
+    if (this.data.carInfo.length >= 3) {
       wx.showToast({
         icon:'none',
         title: '最多只能添加三辆车',
@@ -56,6 +42,29 @@ Page({
     }
   },
 
+  getCarList(){
+    let url = '/mini_get_car_list';
+    wxTools._get(url, {}, (res)=>{
+      if (res.data.code == 200) {
+         let data = res.data.data;
+         let arr = [];
+         for (let i=0; i< data.length;i++) {
+           let _i = data[i];
+           let g_num = (_i.gasoline_num / _i.current_kilometre *100);
+            arr.push({
+              carName: _i.carName,
+              currentM: _i.current_kilometre || 0,
+              gasoline_num: _i.gasoline_num || 0,
+              id: _i.id,
+              consumption: (g_num || 0).toFixed(1),
+            })
+         }
+         this.setData({
+           carInfo:arr,
+         })
+      }
+    })
+  },
   /**
    * 用户点击右上角分享
    */

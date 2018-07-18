@@ -1,2 +1,21 @@
 <!--pages/addbranch/addbranch.wxml-->
-<text>pages/addbranch/addbranch.wxml</text>
+<import src="../../template/header/header.wxml"/>
+    <template is="header" data="{{...header_config}}"></template>
+
+<view class="addbranch">
+  <view 
+  class="_font_size30 _pl40 _pr40 _pt30 _txt_white">
+  <text class="_inline_block">汽车品牌/型号</text>
+  <input 
+    class="_mt20 _pl20 _pr20 _box_sizing _txt_white _border_radius10 _border_gray"
+    placeholder-style='color:#ccc'
+    type="text"
+    value='{{branchInput}}'
+    bindinput="branchInput"
+    maxlength="{{12}}"
+    placeholder="添加汽车品牌/型号"/></view>
+</view>
+  <view class="_center _mt50">
+      <button bindtap="onaddBranch" 
+      class="_bth_l _bg_white _txt_blue">添加</button>
+  </view>

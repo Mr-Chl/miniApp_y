@@ -47,15 +47,12 @@ const parseTime = (time, cFormat) => {
 // 请求方法
 const wxTools = {
     _get: function(url, data, success, fail) {
-        let wx_model = wx.getStorageSync("env"); // 系统信息
+      let token = wx.getStorageSync("token"); 
         wx.request({
             url: BASE_URL + url,
-            data: Object.assign({}, {
-                "env": wx_model
-            }, data),
-            header: {
-                'content-type': 'application/json',
-            },
+            data: {
+              token:token,
+              ...data},
             success: function(res) {
                 success && success(res);
             },
@@ -66,15 +63,11 @@ const wxTools = {
     },
 
     _post: function(url, data, success, fail) {
+      let token = wx.getStorageSync("token"); 
         wx.request({
             url: BASE_URL + url,
             method: 'POST',
-            header: {
-                'content-type': 'application/json',
-            },
-            data: Object.assign({}, {
-                params: data,
-            }),
+            data: Object.assign({ token: token }, data),
             success: function(res) {
                 success && success(res);
             },
