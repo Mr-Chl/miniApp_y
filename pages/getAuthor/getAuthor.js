@@ -3,14 +3,15 @@ import { BASE_URL } from '../../config/config.js'
 Page({
   data: {
       header_config:{
-          iconStyle: '',
+          iconStyle: 'color:#fff',
           text: '授权',
-          textStyle: 'color:#333;font-size:30rpx',
+          textStyle: 'color:#333;font-size:30rpx;color:#fff',
           showBackBtn: false,
-      }
+      },
+      showAuther: false,
   },
   onLoad: function (options) {
-  
+    this.navigators();
   },
   onGotUserInfo: function (e) {
       let { encryptedData, iv, rawData, signature } = e.detail;
@@ -18,9 +19,7 @@ Page({
           if (true) { // 是否登陆过
               this.loginHandle({
                   encryptedData: encryptedData,
-                  iv: iv,
-                  rawData: rawData,
-                  signature: signature,
+                  iv: iv
               });
           }
       } else {
@@ -66,5 +65,18 @@ Page({
               }
           },
       })
+  },
+
+  navigators() {
+    let author = wx.getStorageSync('token');
+    if (!author) {
+        this.setData({
+          showAuther: true,
+        })
+    } else {
+        wx.redirectTo({
+            url: '/pages/manage/manage',
+        })
+    }
   },
 })

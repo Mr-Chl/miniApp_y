@@ -9,16 +9,6 @@ import {
 App({
     onLaunch() { // 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
         this.getPhoneInfo(); //获取系统信息
-        let author = wx.getStorageSync('token');
-        if (!author) {
-            wx.redirectTo({
-                url: '/pages/getAuthor/getAuthor',
-            })
-        } else {
-            wx.redirectTo({
-                url: 'pages/manage/manage',
-            })
-        }
     },
     //获取系统信息 存到本地
     getPhoneInfo() {

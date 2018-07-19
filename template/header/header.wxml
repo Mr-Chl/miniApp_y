@@ -3,7 +3,7 @@
         <view class="_wFull  _flex1" >
             <navigator 
                 wx:if="{{showBackBtn}}"
-                class="iconfont icon-arrow-right _inline_block _pl20 _pr20 _ml50" 
+                class="iconfont icon-arrows-copy-copy _inline_block _pl20 _pr20 _ml30" 
                 style="{{iconStyle ? iconStyle : 'font-size:40rpx;opacity:0.8;'}}" 
                 open-type="navigateBack" 
                 delta="1" hover-class="none"></navigator>
