@@ -1,11 +1,23 @@
 /* pages/addmark/addmark.wxss */
-
+page{
+	background: #1296db;
+}
 .items{
   width:80%;
   margin: 20rpx auto;
   background:#fff;
   font-size: 26rpx;
-  height: 120rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius:10rpx;
+  box-sizing:border-box;
+  padding: 0 20rpx;
+ }
+
+ .items text{
+ 	width:230rpx;
+ 	display:inline-block;
+ 	text-align:left;
  }
 .items input{
   width:300rpx;

@@ -22,7 +22,7 @@ Page({
   showDetaile: function (e) {
     let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/detaile/detaile?id=' + id,
+      url: '/pages/addmark/addmark?id=' + id,
     })
   },
 
@@ -65,10 +65,31 @@ Page({
       }
     })
   },
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  deleteList: function (e) { 
+    let id = e.currentTarget.dataset.id;
+    let url = '/mini_post_delete_car';
+    let _this = this;
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗?',
+      success(res) {
+        if (res.confirm) {
+          wxTools._post(url, {id:id}, (res)=>{
+            if (res.data.code == 200) {
+               wx.showToast({
+                icon:'none',
+                title:'删除成功！',
+               });
+               _this.getCarList();
+            } else {
+               wx.showToast({
+                icon:'none',
+                title:res.data.data,
+               })
+            }
+          })
+        }
+      }
+    })
   }
 })

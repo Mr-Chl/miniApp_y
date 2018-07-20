@@ -2,24 +2,25 @@
     <template is="header" data="{{...header_config}}"></template>
 <view >
     <view class="items">
-      <view>总里程数（km/l）：<input type="text" placeholder="请输入总里程数："/></view>
+      <view><text>加油量(L)</text><input type="number" bindinput="gasoline_numHandle" value="{{gasoline_num}}" placeholder="请输入加油量"/></view>
+    </view>
+<!-- 
+    <view class="items">
+      <view>油品(类型)：<input type="text" placeholder="请输入加油类型"/></view>
+    </view> -->
+
+    <view class="items">
+      <view><text>价格(rmb)</text><input type="number" bindinput="gasoline_priceHandle" value="{{gasoline_price}}" placeholder="请输入加价格"/></view>
     </view>
 
     <view class="items">
-      <view>当前里程数（km/l）：<input type="text" placeholder="请输入当前里程数："/></view>
+      <view><text>总里程数(km/L)</text><input type="number" bindinput="all_kilometreHandle" value="{{all_kilometre}}" placeholder="请输入总里程数"/></view>
     </view>
 
     <view class="items">
-      <view>加油量（l）：<input type="text" placeholder="请输入加油量："/></view>
+      <view><text>当前里程数(km/L)</text><input type="number" bindinput="current_kilometreHandle" value="{{current_kilometre}}" placeholder="请输入当前里程数"/></view>
     </view>
 
-    <view class="items">
-      <view>油品（类型）：<input type="text" placeholder="请输入加油类型："/></view>
-    </view>
 
-    <view class="items">
-      <view>价格：<input type="text" placeholder="请输入加价格："/></view>
-    </view>
-
-    <button type='mini'>保存</button>
+    <button class="_btn_l _bg_white _txt_blue _mt50" bindtap="saveMark">保存</button>
 </view>

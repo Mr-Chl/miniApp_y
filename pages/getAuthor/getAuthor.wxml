@@ -12,7 +12,7 @@
         <button 
         open-type="getUserInfo" 
         bindgetuserinfo="onGotUserInfo" 
-        class="_bth_l">请授权~</button>
+        class="_btn_l">请授权~</button>
     </view>
     <view class="_txt_gray_c _center _font_size24 _pt10 _pb10 _mt100">点击授权 并且点击允许就可以啦~</view>
 </view>

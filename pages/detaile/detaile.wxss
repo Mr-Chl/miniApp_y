@@ -1,1 +1,30 @@
-/* pages/detaile/detaile.wxss */
+page{
+    width:100%;
+    height:100%;
+    background:linear-gradient(45deg, #1296db, #1296db);
+}
+
+.infoBox{
+  width: 650rpx;
+  height: 200rpx;
+  background:rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 26rpx;
+  padding:0 20rpx 0 20rpx;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border-radius: 10rpx;
+}
+.infoBox .title{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 36rpx;
+}
+
+.infoBox .items{
+  flex-direction: column;
+  align-items: center;
+  width:33.33333%;
+  overflow: hidden
+}

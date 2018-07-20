@@ -2,10 +2,10 @@
   "pages":[
     "pages/getAuthor/getAuthor",
     "pages/addmark/addmark",
+    "pages/detaile/detaile",
     "pages/home/home",
     "pages/manage/manage",
-    "pages/addbranch/addbranch",
-    "pages/detaile/detaile"
+    "pages/addbranch/addbranch"
   ],
   "window":{
     "backgroundTextStyle": "light", 

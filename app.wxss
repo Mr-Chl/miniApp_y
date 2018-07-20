@@ -266,7 +266,7 @@ button::after { border:none; }
 /* 超出一省略 */
 ._ellipsis {overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
 
-._bth_m{
+._btn_m{
     width:200rpx;
     height: 70rpx;
     font-size: 30rpx;
@@ -275,7 +275,7 @@ button::after { border:none; }
     color:#fff;
 }
 
-._bth_s{
+._btn_s{
     width:100rpx;
     height: 60rpx;
     line-height: 60rpx;
@@ -284,7 +284,7 @@ button::after { border:none; }
     color:#fff;
 }
 
-._bth_l{
+._btn_l{
     width:300rpx;
     height: 80rpx;
     line-height: 80rpx;

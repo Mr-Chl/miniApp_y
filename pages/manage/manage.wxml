@@ -27,5 +27,6 @@
             <text>{{item.consumption}}</text>
           </view>
         </view>
+        <view class="_txt_right"><text class="iconfont icon-shanchu" data-id="{{item.id}}" bindtap="deleteList"></text></view>
     </view>
 </view>

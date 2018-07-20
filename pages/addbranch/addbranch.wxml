@@ -17,5 +17,5 @@
 </view>
   <view class="_center _mt50">
       <button bindtap="onaddBranch" 
-      class="_bth_l _bg_white _txt_blue">添加</button>
+      class="_btn_l _bg_white _txt_blue">添加</button>
   </view>

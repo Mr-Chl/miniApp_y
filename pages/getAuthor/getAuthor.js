@@ -54,7 +54,7 @@ Page({
                               },500)
                           } else {
                               wx.showToast({
-                                  icon: '../../static/error.png',
+                                  icon: 'none',
                                   title: '授权失败！请重试',
                               })
                           }
