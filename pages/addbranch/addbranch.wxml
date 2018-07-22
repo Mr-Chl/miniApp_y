@@ -8,7 +8,6 @@
   <text class="_inline_block">汽车品牌/型号</text>
   <input 
     class="_mt20 _pl20 _pr20 _box_sizing _txt_white _border_radius10 _border_gray"
-    placeholder-style='color:#ccc'
     type="text"
     value='{{branchInput}}'
     bindinput="branchInput"

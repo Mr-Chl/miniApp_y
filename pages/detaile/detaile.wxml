@@ -1,41 +1,48 @@
 <!--pages/detaile/detaile.wxml-->
-<import src="../../template/header/header.wxml"/>
+<import src="../../template/header/header.wxml" />
 
- <template is="header" data="{{...header_config}}"></template>
+<template is="header" data="{{...header_config}}"></template>
 
-    <view class="infoBox _mt20 _mb20" wx:for="{{carInfo}}" wx:key="{{index}}">
-        <view class="title"><text class="_f_left _ellipsis _w300">{{item.carName}}</text><text 
-	        class="_f_right _font_size24"
-	        data-id="{{item.id}}"
-	        bindtap='showDetaile'>点击查看详情<text class="iconfont icon-arrow-right _font_size24"></text></text>
-        </view>
-        <view class="_wFull _display_flex">
-			<view class="items _display_flex _flex1">
-				<text class="_mb10">当前里程<text class="_font_size24">(km)</text></text>
-				<text>{{item.currentM || 0}}</text>
-			</view>
-			<view class="items _display_flex _flex1">
-				<text class="_mb10">加油量<text class="_font_size24">(L)</text></text>
-				<text>{{item.gasoline_num || 0}}</text>
-			</view>
-			<view class="items _display_flex _flex1">
-				<text class="_mb10">油耗<text class="_font_size24">(100km/L)</text></text>
-				<text>{{item.consumption}}</text>
-			</view>
-
-			<view class="items _display_flex _flex1">
-				<text class="_mb10">油耗<text class="_font_size24">(100km/L)</text></text>
-				<text>{{item.consumption}}</text>
-			</view>
-
-			<view class="items _display_flex _flex1">
-				<text class="_mb10">油耗<text class="_font_size24">(100km/L)</text></text>
-				<text>{{item.consumption}}</text>
-			</view>
-
-			<view class="items _display_flex _flex1">
-				<text class="_mb10">油耗<text class="_font_size24">(100km/L)</text></text>
-				<text>{{item.consumption}}</text>
-			</view>
-        </view>
+<view class="infoBox _mt20 _mb20">
+  <view class="title">
+    <text class="_f_left _ellipsis _w300">{{cardetaileInfo.carName}}</text>
+    <!-- <text 
+    class="_f_right _font_size24" 
+    data-id="{{cardetaileInfo.id}}" 
+    bindtap='showRecordList'>点击查看添加纪录<text 
+    class="iconfont icon-arrow-right _font_size24"></text></text> -->
+  </view>
+  <view class="_wFull _display_flex" style="flex-wrap:wrap;">
+    <view class="items _display_flex ">
+      <text class="_mb30">总里程<text class="_font_size24">(km)</text></text>
+      <text>{{cardetaileInfo.allM}}</text>
     </view>
+    <view class="items _display_flex ">
+      <text class="_mb30">总加油量<text class="_font_size24">(L)</text></text>
+      <text>{{cardetaileInfo.allG}}</text>
+    </view>
+    <view class="items _display_flex ">
+      <text class="_mb30">平均油价<text class="_font_size24">(rmb)</text></text>
+      <text>{{cardetaileInfo.aroundG}}</text>
+    </view>
+
+    <view class="items _display_flex ">
+      <text class="_mb30">当前里程<text class="_font_size24">(km)</text></text>
+      <text>{{cardetaileInfo.curM}}</text>
+    </view>
+
+    <view class="items _display_flex ">
+      <text class="_mb30">当前加油量<text class="_font_size24">(L)</text></text>
+      <text>{{cardetaileInfo.curG}}</text>
+    </view>
+
+    <view class="items _display_flex ">
+      <text class="_mb30">油耗<text class="_font_size24">(100km/L)</text></text>
+      <text>{{cardetaileInfo.aroundO}}</text>
+    </view>
+  </view>
+</view>
+<view 
+  class="_btn_l _center _border_gray _border_radius10 " 
+  style='margin:100rpx auto'
+  bindtap='addRecord'>添加记录</view>

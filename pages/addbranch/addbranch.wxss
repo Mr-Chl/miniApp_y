@@ -17,4 +17,5 @@ page{
 }
 .addbranch input{
   height: 70rpx;
+  color:#fff;
 }

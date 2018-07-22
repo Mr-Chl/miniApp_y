@@ -7,7 +7,7 @@ Page({
    */
   data: {
     header_config: {  // 头部配置
-      iconStyle: '',
+      iconStyle: 'color:#fff',
       text: '管理',
       textStyle: 'color:#fff;font-size:40rpx',
       showBackBtn: false,
@@ -16,13 +16,16 @@ Page({
   },
 
   onLoad: function (options) {
+    // this.getCarList();
+  },
+  onShow(){
     this.getCarList();
   },
-
   showDetaile: function (e) {
     let id = e.currentTarget.dataset.id;
+    let carName = e.currentTarget.dataset.carname;
     wx.navigateTo({
-      url: '/pages/addmark/addmark?id=' + id,
+      url: '/pages/detaile/detaile?id=' + id + '&carName=' + carName,
     })
   },
 

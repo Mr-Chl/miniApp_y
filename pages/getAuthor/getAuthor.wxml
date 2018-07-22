@@ -16,6 +16,6 @@
     </view>
     <view class="_txt_gray_c _center _font_size24 _pt10 _pb10 _mt100">点击授权 并且点击允许就可以啦~</view>
 </view>
-<!-- <view wx:else>
-    <image src="../../static/loading.gif"/>
-</view> -->
+ <view wx:else class="_whFull _bg_blue">
+    <!-- <image src="../../static/loading.gif"/> -->
+</view> 

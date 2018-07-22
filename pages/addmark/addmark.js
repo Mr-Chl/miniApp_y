@@ -21,7 +21,7 @@ Page({
   },
 
   onLoad: function (options) {
-    let id = options.id || 34;
+    let id = options.id;
     this.setData({
       id: id,
     })
@@ -50,9 +50,7 @@ Page({
               icon:'none',
               title:'添加成功'
            });
-           wx.navigateTo({
-            url: '/pages/manage/manage',
-           })
+           wx.navigateBack({})
         }
       })
     }

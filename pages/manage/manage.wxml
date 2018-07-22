@@ -11,6 +11,7 @@
         <view class="title"><text class="_f_left _ellipsis _w300">{{item.carName}}</text><text 
         class="_f_right _font_size24"
         data-id="{{item.id}}"
+        data-carname="{{item.carName}}"
         bindtap='showDetaile'>点击查看详情<text class="iconfont icon-arrow-right _font_size24"></text></text>
         </view>
         <view class="_wFull _display_flex">

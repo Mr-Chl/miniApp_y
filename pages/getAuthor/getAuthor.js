@@ -16,12 +16,14 @@ Page({
   onGotUserInfo: function (e) {
       let { encryptedData, iv, rawData, signature } = e.detail;
       if (iv) {
-          if (true) { // 是否登陆过
-              this.loginHandle({
-                  encryptedData: encryptedData,
-                  iv: iv
-              });
-          }
+          wx.showLoading({
+            title: '正在授权！',
+            mask: true,
+          })
+          this.loginHandle({
+              encryptedData: encryptedData,
+              iv: iv
+          });
       } else {
           wx.showToast({
               icon: 'none',
@@ -43,6 +45,7 @@ Page({
                       success(res) {
                           if (res.data.code == 200) {
                               wx.setStorageSync('token', res.data.data);
+                              wx.hideLoading();
                               wx.showToast({
                                   image: '../../static/success2.png',
                                   title: '授权成功',
@@ -51,7 +54,7 @@ Page({
                                   wx.navigateTo({
                                       url: '/pages/manage/manage',
                                   })
-                              },500)
+                              },100)
                           } else {
                               wx.showToast({
                                   icon: 'none',

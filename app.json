@@ -1,8 +1,8 @@
 {
   "pages":[
     "pages/getAuthor/getAuthor",
-    "pages/addmark/addmark",
     "pages/detaile/detaile",
+    "pages/addmark/addmark",
     "pages/home/home",
     "pages/manage/manage",
     "pages/addbranch/addbranch"
