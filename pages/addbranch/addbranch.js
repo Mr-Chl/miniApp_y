@@ -14,13 +14,49 @@ Page({
       showBackBtn: true,
     },
     branchInput:'',
+    pinpai:[],
+    chexi:[],
+    type:[],
+    value:0,
   },
   onLoad: function (options) {
-  
+    this.getCarListInfo({});
   },
-  branchInput(e){
+  bindPickerChange(event) {
+    var value = event.detail.value;
+    var type =  event.currentTarget.dataset.type;
     this.setData({
-      branchInput: e.detail.value,
+      value: value,
+    });
+    if (type) {
+      this.getCarListInfo({ pinpai: this.data.pinpai[value].carId, chexi: this.data.chexi[value].carId});
+    }  else {
+      this.getCarListInfo({ pinpai: this.data.pinpai[value].carId });
+    }
+  },
+  getCarListInfo(data){
+    let url = '/mini_get_car_branch';
+    let _this = this;
+    let params = {
+      pinpai: data.pinpai || '',
+      chexi: data.chexi || ''
+    }
+    wxTools._get(url, params, (res) => {
+      if (res.data.code === 200) {
+        if (params.pinpai) {
+          _this.setData({
+            'chexi': res.data.data,
+          });
+        } else if (params.chexi) {
+          _this.setData({
+            'type': res.data.data,
+          });
+        } else {
+          _this.setData({
+            'pinpai': res.data.data,
+          })
+        }
+      }
     })
   },
   onaddBranch: function () {

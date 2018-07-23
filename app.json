@@ -1,11 +1,11 @@
 {
   "pages":[
+    "pages/addbranch/addbranch",
     "pages/getAuthor/getAuthor",
     "pages/detaile/detaile",
     "pages/addmark/addmark",
     "pages/home/home",
-    "pages/manage/manage",
-    "pages/addbranch/addbranch"
+    "pages/manage/manage"
   ],
   "window":{
     "backgroundTextStyle": "light", 

@@ -4,15 +4,27 @@
 
 <view class="addbranch">
   <view 
-  class="_font_size30 _pl40 _pr40 _pt30 _txt_white">
-  <text class="_inline_block">汽车品牌/型号</text>
-  <input 
-    class="_mt20 _pl20 _pr20 _box_sizing _txt_white _border_radius10 _border_gray"
-    type="text"
-    value='{{branchInput}}'
-    bindinput="branchInput"
-    maxlength="{{12}}"
-    placeholder="添加汽车品牌/型号"/></view>
+    class="_font_size30 _pl50 _pr50 _pt30 _txt_white">
+    <text class="_inline_block">汽车品牌/型号</text>
+
+      <picker bindchange="bindPickerChange" value="{{value}}" range-key="carName" range="{{pinpai}}">
+        <view 
+          class="_mt20 _pl20 _pr20 _box_sizing _txt_white _radius10"
+          >选择品牌 :{{pinpai[value].carName}}</view>
+      </picker>
+
+      <picker bindchange="bindPickerChange" value="{{value}}" range-key="carName" range="{{chexi}}">
+        <view 
+          class="_mt20 _pl20 _pr20 _box_sizing _txt_white _radius10"
+          >选择车系 :{{chexi[value].carName}}</view>
+      </picker>
+
+      <picker bindchange="bindPickerChange" data-type= '1' value="{{value}}" range="{{type}}">
+        <view 
+          class="_mt20 _pl20 _pr20 _box_sizing _txt_white _radius10"
+          >选择车型 :{{type[value].carName}}</view>
+      </picker>
+  </view>
 </view>
   <view class="_center _mt50">
       <button bindtap="onaddBranch" 
