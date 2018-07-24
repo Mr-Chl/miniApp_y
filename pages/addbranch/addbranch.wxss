@@ -3,7 +3,7 @@ page{
      background:linear-gradient(45deg, #1296db, #1296db); 
 }
 .addbranch{
-  width:80%;
+  width:90%;
   height: 250rpx;
   background: rgba(0,0,0,0.2);
   margin:0 auto;

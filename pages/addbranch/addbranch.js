@@ -17,7 +17,10 @@ Page({
     pinpai:[],
     chexi:[],
     type:[],
-    value:0,
+    pinpaiId:'',
+    chexiId:'',
+    typeId: '',
+    carName: '',
   },
   onLoad: function (options) {
     this.getCarListInfo({});
@@ -25,13 +28,25 @@ Page({
   bindPickerChange(event) {
     var value = event.detail.value;
     var type =  event.currentTarget.dataset.type;
-    this.setData({
-      value: value,
-    });
-    if (type) {
-      this.getCarListInfo({ pinpai: this.data.pinpai[value].carId, chexi: this.data.chexi[value].carId});
-    }  else {
-      this.getCarListInfo({ pinpai: this.data.pinpai[value].carId });
+    switch (type){
+      case '1' :
+        this.setData({
+          pinpaiId: value,
+        })
+        this.getCarListInfo({ pinpai: this.data.pinpai[this.data.pinpaiId].carId });
+        break;
+      case '2':
+        this.setData({
+          pinpaiId: this.data.pinpaiId,
+          chexiId: value,
+        })
+        this.getCarListInfo({ pinpai: this.data.pinpai[this.data.pinpaiId].carId, chexi: this.data.chexi[this.data.chexiId].carId });
+        break;
+      case '3':
+        this.setData({
+          typeId: value,
+        })
+        break;
     }
   },
   getCarListInfo(data){
@@ -43,53 +58,73 @@ Page({
     }
     wxTools._get(url, params, (res) => {
       if (res.data.code === 200) {
-        if (params.pinpai) {
-          _this.setData({
-            'chexi': res.data.data,
-          });
-        } else if (params.chexi) {
+        if (params.chexi && params.pinpai) {
           _this.setData({
             'type': res.data.data,
+          });
+        } else if (params.pinpai) {
+          _this.setData({
+            'chexi': res.data.data,
+            chexiId: '',
+            typeId: '',
           });
         } else {
           _this.setData({
             'pinpai': res.data.data,
+            chexiId:'',
+            pinpaiId:'',
+            typeId:'',
           })
         }
       }
     })
   },
   onaddBranch: function () {
-    let text = this.data.branchInput;
+    let carName = this.data.carName;
     let url = '/mini_post_add_car';
-    if (text.length <= 1) {
-      wx.showToast({
-        icon: 'none',
-        title: '车辆名称最少是两个字',
-      });
-      return ;
-    }
-    wxTools._post(url, { carName: text }, (res) => {
-      if (res.data.code == 200) {
-        wx.showToast({
-          icon: 'none',
-          title: res.data.data,
-        });
-        setTimeout(()=>{
-          wx.navigateTo({
-            url: '/pages/manage/manage',
+    let text = '';
+    let branch = this.data.pinpai[this.data.pinpaiId] && this.data.pinpai[this.data.pinpaiId].carName
+    let chexi = this.data.chexi[this.data.chexiId] && this.data.chexi[this.data.chexiId].carName
+    let type = this.data.type[this.data.typeId] && this.data.type[this.data.typeId].carName
+    if (carName.length <= 1) {
+      text = '车辆名称最少是两个字';
+    } else if (!branch) {
+      text = '选择汽车品牌';
+    } else if (!chexi) {
+      text = '选择汽车车系';
+    } else if (!type) {
+      text = '选择汽车车型';
+    } else {
+      wxTools._post(url, { carName: carName, carBranch: branch, carChexi: chexi, carType: type }, (res) => {
+        if (res.data.code == 200) {
+          wx.showToast({
+            icon: 'none',
+            title: res.data.data,
+          });
+          setTimeout(()=>{
+            wx.navigateTo({
+              url: '/pages/manage/manage',
+            })
+          }, 300)
+        } else {
+          wx.showToast({
+            icon:'none',
+            title: res.data.data,
           })
-        }, 300)
-      } else {
-        wx.showToast({
-          icon:'none',
-          title: res.data.data,
-        })
-      }
-    })
-  
+        }
+      })
+    }
+    wx.showToast({
+      icon: 'none',
+      title: text,
+    });
   },
   onShow: function () {
   
+  },
+  nackNameHandle(e){
+    this.setData({
+      carName: e.detail.value
+    })
   },
 })

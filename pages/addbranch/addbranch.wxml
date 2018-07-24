@@ -1,29 +1,54 @@
 <!--pages/addbranch/addbranch.wxml-->
 <import src="../../template/header/header.wxml"/>
     <template is="header" data="{{...header_config}}"></template>
-
+<view 
+style="width:90%;"
+class="_bg_white _mgauto _pd10 _border_radius10 _border_box _font_size30"
+><text class="iconfont icon-cheliang"></text> 小名：<input 
+maxlength='10'
+placeholder='输入小名'
+bindinput='nackNameHandle'
+value="{{carName}}"
+style="width:80%;display:inline-block;vertical-align:middle;"/></view>
 <view class="addbranch">
-  <view 
-    class="_font_size30 _pl50 _pr50 _pt30 _txt_white">
-    <text class="_inline_block">汽车品牌/型号</text>
+  <view class="_font_size30 _pl30 _pr30 _pt20 _txt_white">
+      <picker 
+        bindchange="bindPickerChange" 
+        data-type= '1'  
+        value="{{pinpaiId}}" 
+        range-key="carName" 
+        range="{{pinpai}}">
+          <view 
+            class="_mt20 _pl20 _font_size30 _pr20 _border_box _txt_white _radius10"
+            >选择品牌  {{pinpai[pinpaiId].carName}}
+            <text class="_font_size30 _txt_gray" wx:if="{{!pinpai[pinpaiId].carName}}"> 请选择品牌</text>
+            </view>
+        </picker>
 
-      <picker bindchange="bindPickerChange" value="{{value}}" range-key="carName" range="{{pinpai}}">
-        <view 
-          class="_mt20 _pl20 _pr20 _box_sizing _txt_white _radius10"
-          >选择品牌 :{{pinpai[value].carName}}</view>
-      </picker>
+      <picker 
+        bindchange="bindPickerChange" 
+        data-type= '2'  
+        value="{{chexiId}}" 
+        range-key="carName" range="{{chexi}}">
+          <view 
+            class="_mt20 _pl20 _pr20 _font_size30 _border_box _txt_white _radius10"
+            >选择车系  {{chexi[chexiId].carName}}
+            <text class="_font_size30 _txt_gray" wx:if="{{!chexi[chexiId].carName}}"> 请选择车系</text>
+            </view>
+        </picker>
 
-      <picker bindchange="bindPickerChange" value="{{value}}" range-key="carName" range="{{chexi}}">
-        <view 
-          class="_mt20 _pl20 _pr20 _box_sizing _txt_white _radius10"
-          >选择车系 :{{chexi[value].carName}}</view>
-      </picker>
-
-      <picker bindchange="bindPickerChange" data-type= '1' value="{{value}}" range="{{type}}">
-        <view 
-          class="_mt20 _pl20 _pr20 _box_sizing _txt_white _radius10"
-          >选择车型 :{{type[value].carName}}</view>
-      </picker>
+      <picker 
+        bindchange="bindPickerChange" 
+        data-type= '3'
+        value="{{chexiId}}"  
+        range-key="carName" 
+        range="{{type}}">
+          <view 
+            class="_mt20 _font_size30 _pl20 _pr20 _border_box _txt_white _radius10"
+            >选择车型  {{type[typeId].carName}}
+            <text class="_font_size30 _txt_gray" wx:if="{{!type[typeId].carName}}"> 请选择车型</text>
+            </view>
+        </picker>
   </view>
 </view>
   <view class="_center _mt50">
