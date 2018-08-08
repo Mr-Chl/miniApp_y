@@ -1,5 +1,5 @@
 // pages/manage/manage.js
-import { wxTools } from '../../utils/util.js';
+import { wxTools, parseTime } from '../../utils/util.js';
 Page({
 
   /**
@@ -18,20 +18,18 @@ Page({
   onLoad: function (options) {
     // this.getCarList();
   },
-  onShow(){
+  onShow(options){
     this.getCarList();
   },
   showDetaile: function (e) {
     let id = e.currentTarget.dataset.id;
     let carName = e.currentTarget.dataset.carname;
+    let carBranch = e.currentTarget.dataset.carbranch;
     wx.navigateTo({
-      url: '/pages/detaile/detaile?id=' + id + '&carName=' + carName,
+      url: '/pages/detaile/detaile?id=' + id + '&carName=' + carName + '&carBranch=' + carBranch,
     })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   addBranch: function () {
     if (this.data.carInfo.length >= 3) {
       wx.showToast({
@@ -47,24 +45,26 @@ Page({
 
   getCarList(){
     let url = '/mini_get_car_list';
+    wx.showLoading({
+      mask: true,
+    })
     wxTools._get(url, {}, (res)=>{
       if (res.data.code == 200) {
          let data = res.data.data;
          let arr = [];
          for (let i=0; i< data.length;i++) {
            let _i = data[i];
-           let g_num = (_i.gasoline_num / _i.current_kilometre *100);
+               _i.new_date = _i.new_date ? parseTime(_i.new_date, '{yy}/{M}/{D} {H}:{i}') : '-';
+           let g_num = _i.current_kilometre ? (_i.gasoline_num / ( _i.current_kilometre || 0) *100) : 0;
             arr.push({
-              carName: _i.carName,
-              currentM: _i.current_kilometre || 0,
-              gasoline_num: _i.gasoline_num || 0,
-              id: _i.id,
+              ..._i,
               consumption: (g_num || 0).toFixed(1),
             })
          }
          this.setData({
            carInfo:arr,
-         })
+         });
+         wx.hideLoading();
       }
     })
   },
@@ -83,7 +83,9 @@ Page({
                 icon:'none',
                 title:'删除成功！',
                });
-               _this.getCarList();
+               setTimeout(()=>{
+                _this.getCarList();
+              },600)
             } else {
                wx.showToast({
                 icon:'none',

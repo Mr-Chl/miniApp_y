@@ -1,4 +1,14 @@
 <!--pages/home/home.wxml-->
+<import src="../../template/header/header.wxml" />
+<template is="header" data="{{...header_config}}"></template>
 <view>
-    home
+	<block 
+		wx:for="{{phineInfo}}" 
+	    wx:key="{{index}}">
+	    <view 
+	    	class=" titles _display_flex _flex_space_between _pl40 _pr40 _border_box _bg_white _pt20 _pb20 _mb20 _border_radius10">
+	    	<text style="width:320rpx">{{item.text}}:</text>
+	    	<text>{{item.content}}</text>
+	    </view>
+    </block>
 </view>

@@ -5,8 +5,8 @@
 
 <view class="infoBox _mt20 _mb20">
   <view class="title">
-    <text class="_f_left _ellipsis _w300">{{cardetaileInfo.carName}}</text>
-    <!-- <text 
+    <text class="_f_left _ellipsis _w300">{{carName}}</text>
+<!--     <text 
     class="_f_right _font_size24" 
     data-id="{{cardetaileInfo.id}}" 
     bindtap='showRecordList'>点击查看添加纪录<text 
@@ -14,34 +14,35 @@
   </view>
   <view class="_wFull _display_flex" style="flex-wrap:wrap;">
     <view class="items _display_flex ">
-      <text class="_mb30">总里程<text class="_font_size24">(km)</text></text>
-      <text>{{cardetaileInfo.allM}}</text>
+      <text >车品牌<text class="_font_size24"></text></text>
+      <text class="_mb20 _mt10">{{carBranch}}</text>
     </view>
     <view class="items _display_flex ">
-      <text class="_mb30">总加油量<text class="_font_size24">(L)</text></text>
-      <text>{{cardetaileInfo.allG}}</text>
+      <text >总里程<text class="_font_size24">(km)</text></text>
+      <text class="_mb20 _mt10">{{cardetaileInfo.all_kilometre}}</text>
     </view>
     <view class="items _display_flex ">
-      <text class="_mb30">平均油价<text class="_font_size24">(rmb)</text></text>
-      <text>{{cardetaileInfo.aroundG}}</text>
-    </view>
-
-    <view class="items _display_flex ">
-      <text class="_mb30">当前里程<text class="_font_size24">(km)</text></text>
-      <text>{{cardetaileInfo.curM}}</text>
+      <text >总共加油量<text class="_font_size24">(L)</text></text>
+      <text class="_mb20 _mt10">{{cardetaileInfo.gasoline_num}}</text>
     </view>
 
     <view class="items _display_flex ">
-      <text class="_mb30">当前加油量<text class="_font_size24">(L)</text></text>
-      <text>{{cardetaileInfo.curG}}</text>
+      <text >开始记录时间<text class="_font_size24"></text></text>
+      <text class="_mb20 _mt10">{{cardetaileInfo.date}}</text>
     </view>
 
     <view class="items _display_flex ">
-      <text class="_mb30">油耗<text class="_font_size24">(100km/L)</text></text>
-      <text>{{cardetaileInfo.aroundO}}</text>
+      <text >总花费<text class="_font_size24">(rmb)</text></text>
+      <text class="_mb20 _mt10">{{cardetaileInfo.gasoline_price}}</text>
+    </view>
+
+    <view class="items _display_flex ">
+      <text >平均油耗<text class="_font_size24">(百km/L)</text></text>
+      <text class="_mb20 _mt10">{{cardetaileInfo.around}}</text>
     </view>
   </view>
 </view>
+<canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas>
 <view 
   class="_btn_l _center _border_gray _border_radius10 " 
   style='margin:100rpx auto'

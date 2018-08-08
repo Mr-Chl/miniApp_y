@@ -51,7 +51,7 @@ Page({
                                   title: '授权成功',
                               })
                               setTimeout(()=>{
-                                  wx.navigateTo({
+                                  wx.switchTab({
                                       url: '/pages/manage/manage',
                                   })
                               },100)
@@ -64,7 +64,11 @@ Page({
                       },
                   })
               } else {
-                  console.log('登录失败！' + res.errMsg)
+                wx.hideLoading();
+                wx.showToast({
+                  icon: 'none',
+                  title: '登录失败！' + res.errMsg,
+                })
               }
           },
       })
@@ -77,7 +81,7 @@ Page({
           showAuther: true,
         })
     } else {
-        wx.redirectTo({
+        wx.switchTab({
             url: '/pages/manage/manage',
         })
     }

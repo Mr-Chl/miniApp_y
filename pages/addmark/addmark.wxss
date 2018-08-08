@@ -15,7 +15,7 @@ page{
  }
 
  .items text{
- 	width:230rpx;
+ 	width:240rpx;
  	display:inline-block;
  	text-align:left;
  }

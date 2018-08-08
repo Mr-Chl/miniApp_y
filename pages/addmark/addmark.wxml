@@ -10,16 +10,16 @@
     </view> -->
 
     <view class="items">
-      <view><text>价格(rmb)</text><input type="number" bindinput="gasoline_priceHandle" value="{{gasoline_price}}" placeholder="请输入加价格"/></view>
+      <view><text>总油价(rmb)</text><input type="number" bindinput="gasoline_priceHandle" value="{{gasoline_price}}" placeholder="请输入总油价"/></view>
     </view>
 
     <view class="items">
-      <view><text>总里程数(km/L)</text><input type="number" bindinput="all_kilometreHandle" value="{{all_kilometre}}" placeholder="请输入总里程数"/></view>
+      <view><text>当前表显里程数(km)</text><input type="number" bindinput="all_kilometreHandle" value="{{all_kilometre}}" placeholder="请输入表显总里程数"/></view>
     </view>
 
-    <view class="items">
+<!--     <view class="items">
       <view><text>当前里程数(km/L)</text><input type="number" bindinput="current_kilometreHandle" value="{{current_kilometre}}" placeholder="请输入当前里程数"/></view>
-    </view>
+    </view> -->
 
 
     <button class="_btn_l _bg_white _txt_blue _mt50" bindtap="saveMark">保存</button>

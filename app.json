@@ -1,10 +1,10 @@
 {
   "pages":[
     "pages/getAuthor/getAuthor",
+    "pages/home/home",
     "pages/addbranch/addbranch",
     "pages/detaile/detaile",
     "pages/addmark/addmark",
-    "pages/home/home",
     "pages/manage/manage"
   ],
   "window":{
@@ -18,6 +18,21 @@
     "onReachBottomDistance": 100,
     "backgroundColorTop": "#1296db",
     "backgroundColorBottom": "#1296db"
+  },
+  "tabBar":{
+    "selectedColor": "#1296db",
+    "list": [{
+      "iconPath": "./static/manage.png",
+      "selectedIconPath": "./static/manage1.png",
+      "text": "管理",
+      "pagePath": "pages/manage/manage"
+    },
+    {
+      "iconPath": "./static/Home.png",
+      "selectedIconPath": "./static/Home1.png",
+      "text": "home",
+      "pagePath": "pages/home/home"
+    }]
   },
   "networkTimeout":{
     "request": 60000, 

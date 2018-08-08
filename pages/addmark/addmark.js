@@ -14,10 +14,10 @@ Page({
       showBackBtn: true,
     },
     id:'',
-    current_kilometre: '',
-    all_kilometre: '',
-    gasoline_price: '',
-    gasoline_num: '',
+    //current_kilometre: '', // 当前里程
+    all_kilometre: '', // 所有里程（表显示里程）
+    gasoline_price: '',// 加油价格
+    gasoline_num: '',// 加油量
   },
 
   onLoad: function (options) {
@@ -31,7 +31,6 @@ Page({
       let url = '/mini_post_add_car_info';
       let params = {
         id: this.data.id,
-        current_kilometre: this.data.current_kilometre,
         all_kilometre: this.data.all_kilometre,
         gasoline_price: this.data.gasoline_price,
         gasoline_num: this.data.gasoline_num,
@@ -46,11 +45,18 @@ Page({
       }
       wxTools._post(url, params, (res)=>{
         if (res.data.code == 200) {
-           wx.showToast({
+          wx.showToast({
               icon:'none',
               title:'添加成功'
-           });
-           wx.navigateBack({})
+          });
+          setTimeout(()=>{
+            wx.navigateBack()
+          },300)
+        } else {
+          wx.showToast({
+              icon:'none',
+              title:res.data.data,
+          });
         }
       })
     }
@@ -71,11 +77,6 @@ Page({
       all_kilometre: e.detail.value,
     })
   },
-  current_kilometreHandle(e) {
-    this.setData({
-      current_kilometre: e.detail.value,
-    })
-  },
   checkParams(obj) {
     let str = '';
     switch(true) {
@@ -89,10 +90,7 @@ Page({
       str = '加油金额有误'  
         break;
       case !obj.all_kilometre :
-      str = '总里程有误'  
-        break;
-      case !obj.current_kilometre :
-      str = '当前里程有误'  
+      str = '表显总里程有误'  
         break;
       default:
         str = '';

@@ -15,6 +15,7 @@ const parseTime = (time, cFormat) => {
     // 大写代表00，小写代表0
     const formatObj = {
         y: date.getFullYear(),
+        yy: date.getFullYear().toString().slice(2),
         m: date.getMonth() + 1,
         M: date.getMonth() + 1,
         d: date.getDate(),
@@ -25,7 +26,7 @@ const parseTime = (time, cFormat) => {
         s: date.getSeconds(),
         a: date.getDay(),
     };
-    const timeStr = format.replace(/{(y|m|M|d|D|h|H|i|s|a)+}/g, (result, key) => {
+    const timeStr = format.replace(/{(yy|y|m|M|d|D|h|H|i|s|a)+}/g, (result, key) => {
         let value = formatObj[key];
         if (key === 'a') return ['日','一', '二', '三', '四', '五', '六'][value];
         if (result.length > 0 && value < 10) {

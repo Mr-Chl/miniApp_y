@@ -5,7 +5,7 @@
 style="width:90%;"
 class="_bg_white _mgauto _pd10 _border_radius10 _border_box _font_size30"
 ><text class="iconfont icon-cheliang"></text> 小名：<input 
-maxlength='10'
+maxlength='6'
 placeholder='输入小名'
 bindinput='nackNameHandle'
 value="{{carName}}"
@@ -19,7 +19,7 @@ style="width:80%;display:inline-block;vertical-align:middle;"/></view>
         range-key="carName" 
         range="{{pinpai}}">
           <view 
-            class="_mt20 _pl20 _font_size30 _pr20 _border_box _txt_white _radius10"
+            class="_mt20 _ellipsis _pl20 _font_size30 _pr20 _border_box _txt_white _radius10"
             >选择品牌  {{pinpai[pinpaiId].carName}}
             <text class="_font_size30 _txt_gray" wx:if="{{!pinpai[pinpaiId].carName}}"> 请选择品牌</text>
             </view>
@@ -31,7 +31,7 @@ style="width:80%;display:inline-block;vertical-align:middle;"/></view>
         value="{{chexiId}}" 
         range-key="carName" range="{{chexi}}">
           <view 
-            class="_mt20 _pl20 _pr20 _font_size30 _border_box _txt_white _radius10"
+            class="_mt20 _ellipsis _pl20 _pr20 _font_size30 _border_box _txt_white _radius10"
             >选择车系  {{chexi[chexiId].carName}}
             <text class="_font_size30 _txt_gray" wx:if="{{!chexi[chexiId].carName}}"> 请选择车系</text>
             </view>
@@ -44,13 +44,25 @@ style="width:80%;display:inline-block;vertical-align:middle;"/></view>
         range-key="carName" 
         range="{{type}}">
           <view 
-            class="_mt20 _font_size30 _pl20 _pr20 _border_box _txt_white _radius10"
+            class="_mt20 _ellipsis _font_size30 _pl20 _pr20 _border_box _txt_white _radius10"
             >选择车型  {{type[typeId].carName}}
             <text class="_font_size30 _txt_gray" wx:if="{{!type[typeId].carName}}"> 请选择车型</text>
             </view>
         </picker>
   </view>
 </view>
+
+<view 
+style="width:90%;"
+class="_bg_white _mgauto _pd10 _border_radius10 _border_box _font_size30"
+>当前表显总里程：<input 
+maxlength='10'
+placeholder='输入当前表显总里程'
+bindinput='allMoliHandle'
+value="{{allM}}"
+type="number"
+style="width:56%;display:inline-block;vertical-align:middle;"/></view>
+
   <view class="_center _mt50">
       <button bindtap="onaddBranch" 
       class="_btn_l _bg_white _txt_blue">添加</button>

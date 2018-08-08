@@ -1,6 +1,8 @@
 // pages/detaile/detaile.js
-import { wxTools } from '../../utils/util.js';
-
+import { wxTools, parseTime } from '../../utils/util.js';
+var wxCharts = require('../../utils/wxcharts.js');
+var lineChart = null;
+var startPos = null;
 Page({
   /**
    * 页面的初始数据
@@ -13,61 +15,58 @@ Page({
       showBackBtn: true,
     },
     cardetaileInfo:{
-      allM: '-', // 总里程
-      allG: '-', // 总加油量
-      aroundG: '-', // 平均油价
-      curM: '-', // 当前里程
-      curG: '-', // 当前加油量
-      aroundO: '-',  // 油耗
+      all_kilometre: 0,
+      gasoline_num: 0,
+      date: '-',
+      gasoline_price: 0,
+      around: 0,
     },
-    recordList:[],
-    id:'',
-    carName:'',
+    id:'1',
+    carName:'默认',
+    carBranch: '马自达',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let { id, carName } = options;
+    let { id, carName, carBranch } = options;
     this.setData({
-      id: id || 1,
-      carName: carName || '默认',
-    })
+      id: id,
+      carName: carName,
+      carBranch: carBranch,
+    });
   },
   getDetileInfo() {
+    wx.showLoading();
     let url = '/mini_get_car_list_detaile';
+    var date = [];
+    var around = [];
     if (!this.data.id) { return;}
     wxTools._get(url, { id: this.data.id}, (res) => {
       if (res.data.code == 200 && res.data.data.length) {
-        let GP = 0;// 平均油价
-        let AM = 0;// 总里程
-        let AG = 0;// 总加油量
-        let RD = res.data.data;
-        for (let i = 0; i < RD.length;i++) {
-         let _i = res.data.data[i]
-         GP += _i.gasoline_price;// 平均油价
-         AM += _i.current_kilometre;// 总里程
-         AG += _i.gasoline_num;// 总加油量
-       }
-        let cg = RD[RD.length - 1].gasoline_num;// 当前加油量
-        let cm = RD[RD.length - 1].current_kilometre; // 当前里程
-       this.setData({
-         'cardetaileInfo.id': (RD[0].id), // 总里程
-         'cardetaileInfo.allM': (RD[0].all_kilometre + AM), // 总里程
-         'cardetaileInfo.allG': (AG), // 总加油量
-         'cardetaileInfo.aroundG': (GP / RD.length).toFixed(2), // 平均油价
-         'cardetaileInfo.curM': RD[RD.length - 1].current_kilometre, // 当前里程
-         'cardetaileInfo.curG': RD[RD.length - 1].gasoline_num, // 当前加油量
-         'cardetaileInfo.aroundO': (cg / cm * 100).toFixed(2),  // 油耗
-         'cardetaileInfo.carName': this.data.carName,
-         recordList: RD,
-       })
+        var dataList = res.data.data.reverse();
+        for(var i = 0;i < dataList.length;i++){
+          around.push(dataList[i].current_kilometre ? (dataList[i].gasoline_num / dataList[i].current_kilometre *100) : 0)
+          date.push(dataList[i].new_date ? parseTime(dataList[i].new_date, '{yy}/{M}/{D}'): '-')
+        }
+        wx.hideLoading();
+        this.statisticalData(dataList);
+        this.created({
+          date: date,
+          around: around,
+        });
+      } else {
+        wx.hideLoading();
+        this.created({
+          date: [0],
+          around: [0],
+        });
       }
     })
   },
   showRecordList() {
-    console.log(this.data.cardetaileInfo);
+    console.log(666); // 列表页
   },
   addRecord(){
     wx.navigateTo({
@@ -76,5 +75,82 @@ Page({
   },
   onShow(){
     this.getDetileInfo();
+  },
+  statisticalData(data){
+    if (!data.length) { return;}
+    var all = {
+      gasoline_num: 0,
+      gasoline_price: 0,
+    };
+    var nums = 0;
+    for(var i = 0;i < data.length;i++){
+      var _i = data[i];
+      all.gasoline_num += _i.gasoline_num;
+      all.gasoline_price += _i.gasoline_price;
+      nums += (_i.gasoline_num / _i.current_kilometre *100);
+    }
+    all.all_kilometre = data[data.length-1].all_kilometre;
+    all.date = parseTime(data[0].new_date, '{yy}/{M}/{D}');
+    all.around = (nums / data.length).toFixed(1);
+    this.setData({
+      cardetaileInfo: all,
+    })
+  },
+  touchHandler: function (e) {
+      lineChart.scrollStart(e);
+  },
+  moveHandler: function (e) {
+      lineChart.scroll(e);
+  },
+  touchEndHandler: function (e) {
+      lineChart.scrollEnd(e);
+      lineChart.showToolTip(e, {
+          format: function (item, category) {
+              return '20' + category +': 平均油耗' + item.data 
+          }
+      });        
+  },
+  created: function (simulationData) {
+    var windowWidth = wx.getStorageSync('env').sw;
+    lineChart = new wxCharts({
+        canvasId: 'lineCanvas',
+        type: 'line',
+        categories: simulationData.date,
+        animation: true,
+        background: '#1296db',
+        series: [{
+            name: '日期（年/月/日）',
+            data: simulationData.around,
+            color:"#fff",
+            fontColor:'#fff',
+            format: function (val, name) {
+                return val.toFixed(1) + 'km/L';
+            }
+        }],
+        xAxis: {
+            disableGrid: false,
+            fontColor:'#fff',
+            gridColor: "#fff",
+        },
+        yAxis: {
+            title: '油耗(L)',
+            fontColor: '#fff',
+            titleFontColor:"#fff",
+            gridColor: "#fff",
+            format: function (val) {
+                return val.toFixed(1);
+            },
+            min: 0,
+        },
+        width: windowWidth,
+        height: 220,
+        dataLabel: true,
+        dataPointShape: true,
+        enableScroll: true,
+        extra: {
+            lineStyle: 'curve',
+            legendTextColor: '#fff'
+        }
+    });
   }
 })
