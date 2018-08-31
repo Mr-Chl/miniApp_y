@@ -5,6 +5,7 @@
     "pages/addbranch/addbranch",
     "pages/detaile/detaile",
     "pages/addmark/addmark",
+    "pages/recordList/recordList",
     "pages/manage/manage"
   ],
   "window":{

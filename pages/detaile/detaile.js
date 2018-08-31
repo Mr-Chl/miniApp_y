@@ -47,7 +47,7 @@ Page({
       if (res.data.code == 200 && res.data.data.length) {
         var dataList = res.data.data.reverse();
         for(var i = 0;i < dataList.length;i++){
-          around.push(dataList[i].current_kilometre ? (dataList[i].gasoline_num / dataList[i].current_kilometre *100) : 0)
+            around.push(dataList[i].consumption || 0)
           date.push(dataList[i].new_date ? parseTime(dataList[i].new_date, '{yy}/{M}/{D}'): '-')
         }
         wx.hideLoading();
@@ -66,7 +66,9 @@ Page({
     })
   },
   showRecordList() {
-    console.log(666); // 列表页
+    wx.navigateTo({
+      url:'/pages/recordList/recordList?id=' + this.data.id,
+    })
   },
   addRecord(){
     wx.navigateTo({
@@ -124,7 +126,7 @@ Page({
             color:"#fff",
             fontColor:'#fff',
             format: function (val, name) {
-                return val.toFixed(1) + 'km/L';
+                return val + 'km/L';
             }
         }],
         xAxis: {
@@ -138,7 +140,7 @@ Page({
             titleFontColor:"#fff",
             gridColor: "#fff",
             format: function (val) {
-                return val.toFixed(1);
+                return val;
             },
             min: 0,
         },

@@ -6,11 +6,10 @@
 <view class="infoBox _mt20 _mb20">
   <view class="title">
     <text class="_f_left _ellipsis _w300">{{carName}}</text>
-<!--     <text 
+    <text 
     class="_f_right _font_size24" 
-    data-id="{{cardetaileInfo.id}}" 
     bindtap='showRecordList'>点击查看添加纪录<text 
-    class="iconfont icon-arrow-right _font_size24"></text></text> -->
+    class="iconfont icon-arrow-right _font_size24"></text></text>
   </view>
   <view class="_wFull _display_flex" style="flex-wrap:wrap;">
     <view class="items _display_flex ">

@@ -55,10 +55,10 @@ Page({
          for (let i=0; i< data.length;i++) {
            let _i = data[i];
                _i.new_date = _i.new_date ? parseTime(_i.new_date, '{yy}/{M}/{D} {H}:{i}') : '-';
-           let g_num = _i.current_kilometre ? (_i.gasoline_num / ( _i.current_kilometre || 0) *100) : 0;
+               let g_num = _i.consumption;
             arr.push({
               ..._i,
-              consumption: (g_num || 0).toFixed(1),
+              consumption: g_num,
             })
          }
          this.setData({

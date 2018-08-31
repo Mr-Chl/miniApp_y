@@ -1,0 +1,28 @@
+<!--pages/recordList/recordList.wxml-->
+<import src="../../template/header/header.wxml" />
+
+<template is="header" data="{{...header_config}}"></template>
+
+
+<view>
+	<scroll-view scroll-x="true" class="scroll">
+		<view class="thead">
+			<text>编号</text>
+			<text>时间</text>
+			<text>油价</text>
+			<text>加油量</text>
+			<text>本次里程</text>
+			<text>油耗</text>
+		</view>
+		<block wx:for="{{recordList}}" wx:key="{{index}}">
+			<view class="tbody">
+				<text>{{index+1}}</text>
+				<text>{{item.date}}</text>
+				<text>{{item.gasoline_price}}</text>
+				<text>{{item.gasoline_num}}</text>
+				<text>{{item.current_kilometre}}</text>
+				<text>{{item.consumption}}</text>
+			</view>
+		</block>
+	</scroll-view>
+</view>
