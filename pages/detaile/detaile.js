@@ -30,11 +30,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let { id, carName, carBranch } = options;
+    let { id, carName, carBranch, all_kilometre } = options;
     this.setData({
       id: id,
       carName: carName,
       carBranch: carBranch,
+      'cardetaileInfo.all_kilometre': all_kilometre,
     });
   },
   getDetileInfo() {
@@ -45,10 +46,10 @@ Page({
     if (!this.data.id) { return;}
     wxTools._get(url, { id: this.data.id}, (res) => {
       if (res.data.code == 200 && res.data.data.length) {
-        var dataList = res.data.data.reverse();
-        for(var i = 0;i < dataList.length;i++){
+        var dataList = res.data.data;
+        for(var i = 1;i < dataList.length;i++){
             around.push(dataList[i].consumption || 0)
-          date.push(dataList[i].new_date ? parseTime(dataList[i].new_date, '{yy}/{M}/{D}'): '-')
+            date.push(dataList[i].new_date ? parseTime(dataList[i].new_date, '{yy}/{M}/{D}'): '-')
         }
         wx.hideLoading();
         this.statisticalData(dataList);
@@ -87,13 +88,16 @@ Page({
     var nums = 0;
     for(var i = 0;i < data.length;i++){
       var _i = data[i];
-      all.gasoline_num += _i.gasoline_num;
       all.gasoline_price += _i.gasoline_price;
-      nums += (_i.gasoline_num / _i.current_kilometre *100);
+      all.gasoline_num += _i.gasoline_num;
+      if (i < data.length-1) {
+        nums += (_i.gasoline_num / _i.current_kilometre *100);
+      }
     }
-    all.all_kilometre = data[data.length-1].all_kilometre;
+    all.all_kilometre = data[0].all_kilometre;
     all.date = parseTime(data[0].new_date, '{yy}/{M}/{D}');
-    all.around = (nums / data.length).toFixed(1);
+    all.around = nums ? (nums / (data.length ? data.length-1 : 0 )).toFixed(1) : 0;
+    debugger
     this.setData({
       cardetaileInfo: all,
     })

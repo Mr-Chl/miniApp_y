@@ -25,11 +25,12 @@ Page({
     let id = e.currentTarget.dataset.id;
     let carName = e.currentTarget.dataset.carname;
     let carBranch = e.currentTarget.dataset.carbranch;
+    let all_kilometre = e.currentTarget.dataset.allkilometre;
+    console.log(e.currentTarget.dataset);
     wx.navigateTo({
-      url: '/pages/detaile/detaile?id=' + id + '&carName=' + carName + '&carBranch=' + carBranch,
+      url: '/pages/detaile/detaile?id=' + id + '&carName=' + carName + '&carBranch=' + carBranch + '&all_kilometre=' + all_kilometre,
     })
   },
-
   addBranch: function () {
     if (this.data.carInfo.length >= 3) {
       wx.showToast({

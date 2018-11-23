@@ -13,6 +13,7 @@
         data-id="{{item.id}}"
         data-carname="{{item.carName}}"
         data-carbranch="{{item.carBranch}}"
+        data-allkilometre="{{item.all_kilometre}}"
         bindtap='showDetaile'>点击查看详情<text class="iconfont icon-arrow-right _font_size24"></text></text>
         </view>
         <view class="_wFull _display_flex" style="flex-wrap:wrap;">
@@ -36,10 +37,10 @@
             <text class="_mb10">本次里程<text class="_font_size24">(km)</text></text>
             <text>{{item.current_kilometre || '-'}}</text>
           </view>
-          <view class="items _display_flex _mt50">
+          <!--<view class="items _display_flex _mt50">
             <text class="_mb10">本次油耗<text class="_font_size24">(km/L)</text></text>
             <text>{{item.consumption}}</text>
-          </view>
+          </view>-->
         </view>
         <view class="_txt_right"><text class="iconfont icon-shanchu" data-id="{{item.id}}" bindtap="deleteList"></text></view>
     </view>

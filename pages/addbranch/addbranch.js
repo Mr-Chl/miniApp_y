@@ -88,7 +88,6 @@ Page({
     let branch = this.data.pinpai[this.data.pinpaiId] && this.data.pinpai[this.data.pinpaiId].carName
     let chexi = this.data.chexi[this.data.chexiId] && this.data.chexi[this.data.chexiId].carName
     let type = this.data.type[this.data.typeId] && this.data.type[this.data.typeId].carName
-    console.log(allM.length <= 1);
     if (carName.length <= 1) {
       text = '车辆名称最少是两个字';
     } else if (!branch) {
@@ -97,9 +96,11 @@ Page({
       text = '选择汽车车系';
     } else if (!type) {
       text = '选择汽车车型';
-    } else if (allM.length <= 1) {
-      text = '表显总里程最少是两位数';
-    } else {
+    } 
+    //else if (allM.length <= 1) {
+    //   text = '表显总里程最少是两位数';
+    // }
+     else {
       wxTools._post(url, { allM: allM, carName: carName, carBranch: branch, carChexi: chexi, carType: type }, (res) => {
         if (res.data.code == 200) {
           wx.showToast({
@@ -133,7 +134,6 @@ Page({
     })
   },
   allMoliHandle(e) {
-    console.log(e);
     this.setData({
       allM: e.detail.value
     })

@@ -4,9 +4,9 @@
 <view 
 style="width:90%;"
 class="_bg_white _mgauto _pd10 _border_radius10 _border_box _font_size30"
-><text class="iconfont icon-cheliang"></text> 小名：<input 
+><text class="iconfont icon-cheliang"></text> 昵称：<input 
 maxlength='6'
-placeholder='输入小名'
+placeholder='输入昵称'
 bindinput='nackNameHandle'
 value="{{carName}}"
 style="width:80%;display:inline-block;vertical-align:middle;"/></view>
@@ -52,7 +52,7 @@ style="width:80%;display:inline-block;vertical-align:middle;"/></view>
   </view>
 </view>
 
-<view 
+<!--<view 
 style="width:90%;"
 class="_bg_white _mgauto _pd10 _border_radius10 _border_box _font_size30"
 >当前表显总里程：<input 
@@ -61,7 +61,7 @@ placeholder='输入当前表显总里程'
 bindinput='allMoliHandle'
 value="{{allM}}"
 type="number"
-style="width:56%;display:inline-block;vertical-align:middle;"/></view>
+style="width:56%;display:inline-block;vertical-align:middle;"/></view>-->
 
   <view class="_center _mt50">
       <button bindtap="onaddBranch" 
