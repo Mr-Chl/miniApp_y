@@ -43,7 +43,7 @@ Page({
     let url = '/mini_get_car_list_detaile';
     var date = [];
     var around = [];
-    if (!this.data.id) { return;}
+    if (!this.data.id) { return false;}
     wxTools._get(url, { id: this.data.id}, (res) => {
       if (res.data.code == 200 && res.data.data.length) {
         var dataList = res.data.data;
@@ -54,8 +54,8 @@ Page({
         wx.hideLoading();
         this.statisticalData(dataList);
         this.created({
-          date: date,
-          around: around,
+            date: date.length ? date : [0],
+            around: around.length ? around : [0],
         });
       } else {
         wx.hideLoading();
@@ -97,7 +97,6 @@ Page({
     all.all_kilometre = data[0].all_kilometre;
     all.date = parseTime(data[0].new_date, '{yy}/{M}/{D}');
     all.around = nums ? (nums / (data.length ? data.length-1 : 0 )).toFixed(1) : 0;
-    debugger
     this.setData({
       cardetaileInfo: all,
     })

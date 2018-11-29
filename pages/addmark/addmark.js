@@ -35,7 +35,7 @@ Page({
         gasoline_price: this.data.gasoline_price,
         gasoline_num: this.data.gasoline_num,
       }
-      let checks = this.checkParams(params)
+      let checks = this.checkParams(params);
       if (checks) {
         wx.showToast({
           icon:'none',
@@ -55,7 +55,7 @@ Page({
         } else {
           wx.showToast({
               icon:'none',
-              title:res.data.data,
+              title: res.data.data,
           });
         }
       })
