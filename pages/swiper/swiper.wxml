@@ -1,0 +1,40 @@
+<!--pages/swiper.wxml-->
+<view>
+<import src="../../template/header/header.wxml" />
+<template is="header" data="{{...header_config}}"></template>
+    <view class="nav">
+        <view  bindtap="getcurrent" 
+                wx:for="{{nav_list}}"
+                wx:key="{{index}}"
+                data-index="{{index}}" 
+                class="{{current== index ?'color':''}}">{{item.name}}</view>
+        <view  class="nav_line" style="{{'left:'+(current*100)}}px"></view>
+    </view>
+    <swiper bindchange="intervalChange" current="{{current}}" previous-margin="58rpx" next-margin="58rpx">
+        <swiper-item>
+            <view class="swiper_content">
+                <image mode="scaleToFill" src="http://xqproduct.xiangqu.com/FmeHg6tePkFyHWw1PzEalHKt06Z_?imageView2/2/w/460/q/90/format/jpg/460x640/"></image>
+            </view>
+        </swiper-item> 
+        <swiper-item >
+            <view class="swiper_content">
+                 <image mode="scaleToFill" src="http://xqproduct.xiangqu.com/FhfW1esvkmbfLUr09VeA2ie5aNZv?imageView2/2/w/460/q/90/format/jpg/460x640/"></image>
+            </view>
+        </swiper-item>
+        <swiper-item >
+            <view class="swiper_content">
+                 <image mode="scaleToFill" src="http://xqproduct.xiangqu.com/FojWxvWuso3X7BMQ4ZI_caKOyUxG?imageView2/2/w/460/q/90/format/jpg/460x640/"></image>
+            </view>
+        </swiper-item>
+        <swiper-item>
+            <view class="swiper_content">
+                <image mode="scaleToFill" src="http://xqproduct.xiangqu.com/FvtCyJe4rmjqnittoQqikTrrWj8T?imageView2/2/w/460/q/90/format/jpg/460x640/"></image>
+            </view>
+        </swiper-item>
+                <swiper-item>
+            <view class="swiper_content">
+                <image mode="scaleToFill" src="http://xqproduct.xiangqu.com/FvtCyJe4rmjqnittoQqikTrrWj8T?imageView2/2/w/460/q/90/format/jpg/460x640/"></image>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>

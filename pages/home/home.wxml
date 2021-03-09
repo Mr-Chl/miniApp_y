@@ -11,4 +11,22 @@
 	    	<text>{{item.content}}</text>
 	    </view>
     </block>
+    <view 
+      class=" titles _display_flex _flex_space_between _pl40 _pr40 _border_box _bg_white _pt20 _pb20 _mb20 _border_radius10">
+      <navigator url="/pages/index/index" hover-class="none">
+        map_Dom
+      </navigator>
+    </view>
+    <view 
+      class=" titles _display_flex _flex_space_between _pl40 _pr40 _border_box _bg_white _pt20 _pb20 _mb20 _border_radius10">
+      <navigator url="/pages/clock/clock" hover-class="none">
+        clock_Dom
+      </navigator>
+    </view>
+    <!-- <view 
+      class=" titles _display_flex _flex_space_between _pl40 _pr40 _border_box _bg_white _pt20 _pb20 _mb20 _border_radius10">
+      <navigator url="/pages/swiper/swiper" hover-class="none">
+        swiper_Dom
+      </navigator>
+    </view> -->
 </view>

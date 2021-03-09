@@ -1,0 +1,6 @@
+<!--pages/clock.wxml-->
+<import src="../../template/header/header.wxml" />
+<template is="header" data="{{...header_config}}"></template>
+<view class="container">
+<canvas canvas-id="clock"/>
+</view>

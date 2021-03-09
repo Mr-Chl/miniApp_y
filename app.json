@@ -6,6 +6,9 @@
         "pages/detaile/detaile",
         "pages/addmark/addmark",
         "pages/recordList/recordList",
+        "pages/index/index",
+        "pages/clock/clock",
+        "pages/swiper/swiper",
         "pages/manage/manage"
     ],
     "window": {
