@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/manage/manage",
         "pages/getAuthor/getAuthor",
         "pages/home/home",
         "pages/addbranch/addbranch",
@@ -8,8 +9,7 @@
         "pages/recordList/recordList",
         "pages/index/index",
         "pages/clock/clock",
-        "pages/swiper/swiper",
-        "pages/manage/manage"
+        "pages/swiper/swiper"
     ],
     "window": {
         "backgroundTextStyle": "light",
