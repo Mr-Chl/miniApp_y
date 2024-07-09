@@ -60,7 +60,7 @@ App({
             success: (res) => {
                 if (res.code) {
                     wx.request({//发起网络请求
-                        url: BASE_URL + '/mini_post_login',
+                        url: BASE_URL + '/index/login',
                         method: 'post',
                         data: {
                             code: res.code,
